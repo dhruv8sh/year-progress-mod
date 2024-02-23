@@ -14,5 +14,9 @@
       <label>Color of label</label>
       <default>#000000</default>
     </entry>
+    <entry name="customLabel" type="String">
+      <label>Message</label>
+      <default>%y% is %p% complete</default>
+    </entry>
   </group>
 </kcfg>

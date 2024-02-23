@@ -1,0 +1,23 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "zubkovbackend@gmail.com",
+                "Name": "Stepan Zubkov"
+            }
+        ],
+        "Category": "Date and Time",
+        "EnabledByDefault": true,
+        "Icon": "view-calendar",
+        "Id": "com.github.stepanzubkov.year-progress-extended",
+        "License": "GPLv3",
+        "Name": "Year Progress Extended",
+        "Name[fr]": "Year Progress Extended",
+        "Name[ru]": "Расширенный виджет годового прогресса",
+        "ServiceTypes": [
+            "Plasma/Applet"
+        ],
+        "Version": "1.0.2"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0"
+}
