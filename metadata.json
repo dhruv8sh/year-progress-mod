@@ -2,22 +2,20 @@
     "KPlugin": {
         "Authors": [
             {
-                "Email": "zubkovbackend@gmail.com",
-                "Name": "Stepan Zubkov"
+                "Email": "dhurv8sh@proton.me",
+                "Name": "Dhruvesh Surolia"
             }
         ],
         "Category": "Date and Time",
         "EnabledByDefault": true,
         "Icon": "view-calendar",
-        "Id": "com.github.stepanzubkov.year-progress-extended",
+        "Id": "com.github.dhruv8sh.year-progress-mod",
         "License": "GPLv3",
-        "Name": "Year Progress Extended",
-        "Name[fr]": "Year Progress Extended",
-        "Name[ru]": "Расширенный виджет годового прогресса",
+        "Name": "Year Progress Mod",
         "ServiceTypes": [
             "Plasma/Applet"
         ],
-        "Version": "1.0.2"
+        "Version": "v0.1"
     },
     "X-Plasma-API-Minimum-Version": "6.0"
 }

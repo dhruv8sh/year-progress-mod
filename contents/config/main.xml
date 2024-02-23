@@ -10,13 +10,25 @@
       <label>Font size of percentage label</label>
       <default>14</default>
     </entry>
-    <entry name="labelColor" type="Color">
-      <label>Color of label</label>
+    <entry name="textColor" type="Color">
+      <label>Color of progress bar</label>
+      <default>#ffffff</default>
+    </entry>
+    <entry name="customLabelColorEnabled" type="Bool">
+      <label>Whether to allow custom color</label>
+      <default>false</default>
+    </entry>
+    <entry name="progressColor" type="Color">
+      <label>Color of progress bar</label>
       <default>#000000</default>
+    </entry>
+    <entry name="customProgressColorEnabled" type="Bool">
+      <label>Whether to allow custom colors</label>
+      <default>false</default>
     </entry>
     <entry name="customLabel" type="String">
       <label>Message</label>
-      <default>%y% is %p% complete</default>
+      <default>%y is %p complete</default>
     </entry>
   </group>
 </kcfg>
