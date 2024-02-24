@@ -7,7 +7,7 @@ import org.kde.kquickcontrols as KQuick
 import org.kde.kirigami as Kirigami
 
 //TODO: Clean up this horrible mess
-Item {
+ColumnLayout {
     id: root
 
     property alias cfg_labelFontSize: labelFontSize.value
@@ -16,19 +16,25 @@ Item {
     property alias cfg_customTextColorEnabled: customLabelColorEnabled.checked
     property alias cfg_progressColor: progressColor.color
     property alias cfg_customProgressColorEnabled: customProgressColorEnabled.checked
-    property int confWidth: 300
+    property real centerFactor: 0.3
+    property real minimumWidth: 100
+    spacing: 5
+
     ColumnLayout {
+        id:mainColumn
+        spacing: Kirigami.Units.largeSpacing
+        Layout.fillWidth: true
+
         Kirigami.InlineMessage {
-            width: 350
-            //customLabel.width
+            width: root.width
             height: 100
             text: "Put \'%y\' for year and \'%p\' for year progress."
-            visible: true
+            visible: customLabel.focus
         }
         RowLayout {
-            Label {
+            Label{
+                Layout.minimumWidth: Math.max(centerFactor * root.width, minimumWidth)
                 text: i18n("Label:")
-                width: label.width
                 horizontalAlignment: Label.AlignRight
             }
             TextField {
@@ -36,61 +42,47 @@ Item {
                 placeholderText: i18n("Custom Label")
             }
         }
-        RowLayout {
+        GridLayout{
+            columns: 2
+            Label{Layout.minimumWidth: Math.max(centerFactor * root.width, minimumWidth)}
             SpinBox {
                 id: labelFontSize
-                textFromValue: function (value) {
-                    return i18nc("%1 is font size in points (pt)", "%1 pt", value)
+                textFromValue: value => {
+                    return i18n("%1 pt", value)
                 }
                 x: label1.width
                 stepSize: 1
                 from: 8
                 to: 48
             }
-            Label {
-                text: i18n("Font Size")
+            Label{Layout.minimumWidth: Math.max(centerFactor * root.width, minimumWidth)}
+            RowLayout{
+                CheckBox {
+                    x: label1.width
+                    id: customLabelColorEnabled
+                }
+                Label{text: "Custom Colors Enabled"}
+                KQuick.ColorButton {
+                    id: labelColor
+                    visible: customLabelColorEnabled.checked
+                }
             }
         }
-        RowLayout {
-            CheckBox {
-                x: label1.width
-                id: customLabelColorEnabled
-            }
-            Label {
-                text: i18n("Enable Custom Color")
-            }
+    }
+    RowLayout {
+        Label{
+            text: "Progress Bar:"
+            Layout.minimumWidth: Math.max(centerFactor * root.width, minimumWidth)
+            horizontalAlignment: Label.AlignRight
         }
-        RowLayout {
-            Label {
-                width: label.width
-                horizontalAlignment: Label.AlignRight
-            }
-            KQuick.ColorButton {
-                id: labelColor
-                text: i18n("Color")
-                visible: customLabelColorEnabled.checked
-            }
+        CheckBox {
+            x: label1.width
+            id: customProgressColorEnabled
         }
-        RowLayout {
-            Label {
-                id: label1
-                width: label.width
-                horizontalAlignment: Label.AlignRight
-                text: i18n("Progress Bar:")
-            }
-            CheckBox {
-                id: customProgressColorEnabled
-            }
-        }
-        RowLayout {
-            Label {
-                width: label.width
-                horizontalAlignment: Label.AlignRight
-            }
-            KQuick.ColorButton {
-                id: progressColor
-                visible: customProgressColorEnabled.checked
-            }
+        Label{text: "Custom Colors Enabled"}
+        KQuick.ColorButton {
+            id: progressColor
+            visible: customProgressColorEnabled.checked
         }
     }
 }
