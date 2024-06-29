@@ -10,7 +10,7 @@ Item {
     property color customTextColor: plasmoid.configuration.textColor
     Layout.minimumWidth: (plasmoid.configuration.labelFontSize * customLabel.length)
     Layout.maximumHeight: plasmoid.configuration.labelFontSize * 10
-    Label{
+    Label {
         id: percentageLabel
         z: 1
         anchors.centerIn: parent
@@ -23,9 +23,10 @@ Item {
         x: -Kirigami.Units.smallSpacing
         y: -Kirigami.Units.smallSpacing
         id: progressBar
-        height: parent.height + ( 2 * Kirigami.Units.smallSpacing)
-        width: (progress * parent.width / 100) + (2*Kirigami.Units.smallSpacing)
+        height: parent.height + (2 * Kirigami.Units.smallSpacing)
+        width: (progress * parent.width / 100) + (2 * Kirigami.Units.smallSpacing)
         anchors.left: plasmoid.left
         color: plasmoid.configuration.customProgressColorEnabled ? progressColor : Kirigami.Theme.highlightColor
     }
 }
+
